@@ -6,7 +6,7 @@ Reference: https://driedfishlin.medium.com/%E6%89%8B%E6%8A%8A%E6%89%8B%E5%B8%B6%
 
 ### 一、建立專案 & package.json
 
-```json
+```javascript
 mkdir webpack_practice  /** 建立資料夾 */
 cd webpack_practice     /** 進入資料夾 */
 npm init -y             /** 安裝 package.json 模板 */
@@ -14,7 +14,7 @@ npm init -y             /** 安裝 package.json 模板 */
 
 `-y` 表示跳過所有專案設定並採用預設值。
 
-```json
+```javascript
 // package.json
 {
   "name": "webpack",
@@ -34,13 +34,13 @@ npm init -y             /** 安裝 package.json 模板 */
 
 ### 二、安裝 webpack & webpack-cli 工具
 
-```json
+```javascript
 npm i webpack -D      /** 安裝 webpack 至 devDeps */
 npm i webpack-cli -D  /** 安裝 webpack-cli 至 devDeps */
 ```
 
-```json
-// package.json
+```javascript
+// package.javascript
 {
   ...
   "devDependencies": {
@@ -73,7 +73,7 @@ module.exports = {
 
 加入 `build` 指令，後可執行 `npm run build` or `npx webpack build`，都可以執行打包作業。(有加入 `scripts` 就可以使用 `npm run build`)
 
-```json
+```javascript
 // package.json
 {
   ...
@@ -125,20 +125,20 @@ module.exports = {
 
 ### 五、加入 React & babel 套件
 
-```json
+```javascript
 npm i react react-dom    /** 安裝 React 對應套件 */
 ```
 
 後續因為 `React` 是 `JSX` 語法，所以要在 `webpack` 裡面加入 `babel-loader`，在打包過程可以把 看不懂的 `JSX` 語法經過 `babel` 轉成 看得懂的東西。
 
-```json
+```jjavascript
 npm i babel-loader -D         /** webpack 所需的 babel loader */
 npm i @babel/core -D          /** babel 核心 */
 npm i @babel/preset-env -D    /** babel 轉譯 ES6+ */
 npm i @babel/preset-react -D  /** babel 轉換 React */
 ```
 
-```json
+```javascript
 // package.json
 {
   ...
@@ -216,7 +216,7 @@ module: {
 
 #### 打包 HTML
 
-```json
+```javascript
 npm i html-webpack-plugin -D   /** 打包後的 .js 會被自動加入到 <head> 裡面，並且將HTML 做最小化處理 */
 ```
 
@@ -242,7 +242,7 @@ plugins: [
 
 #### CSS 建立與打包
 
-```json
+```javascript
 npm i css-loader -D                /** webpack 所需的 css loader */
 npm i mini-css-extract-plugin -D   /** webpack 所需的 babel loader */
 ```
@@ -307,7 +307,7 @@ plugins: [
 - `Hot Reload`:
   透過檔案改變與儲存，可針對部分修改做更新，而並非全部重新打包。
 
-```json
+```javascript
 npm i webpack-dev-server -D
 ```
 
@@ -323,7 +323,7 @@ module.exports = {
 }
 ```
 
-```json
+```javascript
 // package.json
 "scripts": {
   "build": "webpack build",
@@ -335,11 +335,11 @@ module.exports = {
 
 ### 十、每次打包前自動刪除 build or dist 裡面舊的
 
-```json
+```javascript
 npm i rimraf -D
 ```
 
-```json
+```javascript
 // package.json
 "scripts": {
   "start": "webpack serve --open",
